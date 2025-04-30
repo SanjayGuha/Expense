@@ -201,7 +201,7 @@ const ExpenseList = () => {
                         fontWeight: 500,
                       }}
                     >
-                      ${Math.abs(expense.amount).toFixed(2)}
+                      ₹{Math.abs(expense.amount).toFixed(2)}
                     </Typography>
                   </TableCell>
                   <TableCell align="center">

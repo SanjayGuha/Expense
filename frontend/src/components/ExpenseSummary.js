@@ -72,7 +72,7 @@ const SummaryCard = ({ title, value, loading }) => {
               WebkitTextFillColor: 'transparent',
             }}
           >
-            ${value.toFixed(2)}
+            ₹{value.toFixed(2)}
           </Typography>
         )}
       </CardContent>

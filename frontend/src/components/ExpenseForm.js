@@ -13,6 +13,7 @@ import {
 import { useExpense } from '../context/ExpenseContext';
 
 const categories = [
+  'Rent',
   'Food & Dining',
   'Transportation',
   'Shopping',
@@ -138,7 +139,7 @@ const ExpenseForm = () => {
                 error={!!errors.amount}
                 helperText={errors.amount}
                 InputProps={{
-                  startAdornment: <Typography sx={{ mr: 1 }}>$</Typography>,
+                  startAdornment: <Typography sx={{ mr: 1 }}>₹</Typography>,
                 }}
                 variant="outlined"
               />

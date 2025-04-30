@@ -466,6 +466,18 @@ const Auth = () => {
                   )}
                 </Box>
               </form>
+
+              <Box sx={{ mt: 4, textAlign: 'center' }}>
+                <Typography 
+                  variant="body2" 
+                  sx={{ 
+                    color: theme.palette.text.secondary,
+                    fontStyle: 'italic'
+                  }}
+                >
+                  Powered by Sanjay Guha
+                </Typography>
+              </Box>
             </Paper>
           </Grid>
         </Grid>
