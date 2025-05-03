@@ -7,20 +7,33 @@ const getExpenseSummary = (expenses) => {
   if (!expenses || expenses.length === 0) {
     return {
       total: 0,
-      average: 0,
+      currentMonth: 0,
       highest: 0,
       lowest: 0
     };
   }
 
   const total = expenses.reduce((sum, expense) => sum + expense.amount, 0);
-  const average = total / expenses.length;
+  
+  // Calculate current month's expenses
+  const currentDate = new Date();
+  const currentMonth = currentDate.getMonth();
+  const currentYear = currentDate.getFullYear();
+  
+  const currentMonthExpenses = expenses.filter(expense => {
+    const expenseDate = new Date(expense.date);
+    return expenseDate.getMonth() === currentMonth && 
+           expenseDate.getFullYear() === currentYear;
+  });
+  
+  const currentMonthTotal = currentMonthExpenses.reduce((sum, expense) => sum + expense.amount, 0);
+  
   const highest = Math.max(...expenses.map(expense => expense.amount));
   const lowest = Math.min(...expenses.map(expense => expense.amount));
 
   return {
     total,
-    average,
+    currentMonth: currentMonthTotal,
     highest,
     lowest
   };
@@ -101,7 +114,7 @@ const ExpenseSummary = () => {
           <SummaryCard title="Total Expenses" value={summary.total} loading={loading} />
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
-          <SummaryCard title="Average Expense" value={summary.average} loading={loading} />
+          <SummaryCard title="Current Month Expenses" value={summary.currentMonth} loading={loading} />
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
           <SummaryCard title="Highest Expense" value={summary.highest} loading={loading} />

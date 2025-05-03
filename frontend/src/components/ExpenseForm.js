@@ -23,6 +23,8 @@ const categories = [
   'Utilities',
   'Education',
   'Travel',
+  'Gift',
+  'Grocery',
   'Other'
 ];
 
